@@ -1,0 +1,143 @@
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fce4ec; /* Light pink background */
+    color: #333;
+}
+
+/* --- Loader Styles --- */
+
+.loader-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ff99aa; /* Brighter pink/red */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    transition: opacity 0.5s ease;
+}
+
+.heartbeat {
+    width: 80%;
+    max-width: 400px;
+    height: auto;
+    overflow: visible;
+}
+
+.line {
+    fill: none;
+    stroke: white;
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    /* Animation for the heartbeat effect */
+    animation: monitor 1.5s infinite linear;
+}
+
+@keyframes monitor {
+    0% {
+        stroke-dasharray: 0 500;
+        stroke-dashoffset: 0;
+    }
+    10% {
+        stroke-dasharray: 500 500;
+        stroke-dashoffset: 0;
+    }
+    80% {
+        stroke-dasharray: 500 500;
+        stroke-dashoffset: -500;
+    }
+    100% {
+        stroke-dasharray: 500 500;
+        stroke-dashoffset: -500;
+    }
+}
+
+.loader-text {
+    color: white;
+    font-size: 1.5em;
+    margin-top: 20px;
+    font-family: 'Pacifico', cursive;
+}
+
+/* --- Main Content Styles --- */
+
+.main-content {
+    padding: 50px;
+    min-height: 100vh;
+}
+
+header h2 {
+    font-family: 'Pacifico', cursive;
+    color: #e91e63; /* Darker pink */
+    font-size: 3em;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.message-area {
+    background-color: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    white-space: pre-wrap; /* Ensures your paragraphs/breaks are preserved */
+}
+
+/* Utility Class */
+.hidden {
+    display: none !important;
+}
+
+/* --- Pop-up/Modal Styles --- */
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3000; /* Above everything else */
+}
+
+.popup {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+    max-width: 400px;
+    transform: scale(1);
+    transition: transform 0.3s ease;
+}
+
+.popup p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.modal-buttons button, .close-btn {
+    background-color: #ff99aa;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.modal-buttons button:hover, .close-btn:hover {
+    background-color: #e91e63;
+}
